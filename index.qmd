@@ -186,6 +186,16 @@ ggplot(performance_df, aes(x = Trees, y = R_squared)) +
 ```
 
 
+1. **Power of More Trees Analysis:** Provide a clear, well-reasoned analysis of how random forest performance improves with more trees. Your analysis should demonstrate understanding of ensemble learning principles and diminishing returns. 
+
+The analysis of the data with the addition of more trees gets a lot stronger. It is much better with more trees than less trees, but adding too many will not necessarily make you data that much better. We can find an optimal range that will always give us the data we are looking for based on the knowlegde of random forests. 
+
+2. **Overfitting Analysis:** Provide a thorough analysis comparing decision trees vs random forests in terms of overfitting. Your analysis should explain why individual trees overfit while random forests don't, and the mechanisms that prevent overfitting in ensemble methods. 
+
+In decision trees, the training data will continually get better for however much depth you decide to add. However, it does not improve the test data and infact hinders it as more and more depth is added. It is not the same for the train and test data. 
+
+3. **Linear Regression Comparison:** Your analysis should include a clear comparison table and discussion of when random forests are worth the added complexity vs linear regression. Focus on practical implications for real-world applications.
+
 ```{r}
 #| label: linear-regression-comparison
 #| echo: false
@@ -208,14 +218,3 @@ comparison_table <- data.frame(
 # Print the comparison table
 print(comparison_table)
 ```
-
-
-1. **Power of More Trees Analysis:** Provide a clear, well-reasoned analysis of how random forest performance improves with more trees. Your analysis should demonstrate understanding of ensemble learning principles and diminishing returns. 
-
-The analysis of the data with the addition of more trees gets a lot stronger. It is much better with more trees than less trees, but adding too many will not necessarily make you data that much better. We can find an optimal range that will always give us the data we are looking for based on the knowlegde of random forests. 
-
-2. **Overfitting Analysis:** Provide a thorough analysis comparing decision trees vs random forests in terms of overfitting. Your analysis should explain why individual trees overfit while random forests don't, and the mechanisms that prevent overfitting in ensemble methods. 
-
-In decision trees, the training data will continually get better for however much depth you decide to add. However, it does not improve the test data and infact hinders it as more and more depth is added. It is not the same for the train and test data. 
-
-3. **Linear Regression Comparison:** Your analysis should include a clear comparison table and discussion of when random forests are worth the added complexity vs linear regression. Focus on practical implications for real-world applications.
