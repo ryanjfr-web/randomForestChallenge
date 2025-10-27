@@ -186,15 +186,13 @@ ggplot(performance_df, aes(x = Trees, y = R_squared)) +
 ```
 
 
-1. **Power of More Trees Analysis:** Provide a clear, well-reasoned analysis of how random forest performance improves with more trees. Your analysis should demonstrate understanding of ensemble learning principles and diminishing returns. 
-
+1. **Power of More Trees Analysis:**
 The analysis of the data with the addition of more trees gets a lot stronger. It is much better with more trees than less trees, but adding too many will not necessarily make you data that much better. We can find an optimal range that will always give us the data we are looking for based on the knowlegde of random forests. Also adding more trees creates a strong average amongst them to handle any unusual values inside. 
 
-2. **Overfitting Analysis:** Provide a thorough analysis comparing decision trees vs random forests in terms of overfitting. Your analysis should explain why individual trees overfit while random forests don't, and the mechanisms that prevent overfitting in ensemble methods. 
-
+2. **Overfitting Analysis:**
 In decision trees, the training data will continually get better for however much depth you decide to add. However, it does not improve the test data and infact hinders it as more and more depth is added. It is not the same for the train and test data. Decision trees separate feature space into much smaller regions. If the tree grows fully it will be able to succesfully fit each trait from the training set. This creates low bias but very high variance since small changes made to the training data would deviate splits and drastically change predictions. Trees model interactions and non-linearities, but with small sample counts per leaf, those patterns are often not accurate. Reducing correlation between trees is essential to making sure the model does not overfit. Random Forests do this with bootstrap sampling and random feature subsetting. 
 
-3. **Linear Regression Comparison:** Your analysis should include a clear comparison table and discussion of when random forests are worth the added complexity vs linear regression. Focus on practical implications for real-world applications.
+3. **Linear Regression Comparison:**
 Random forests are helpful to make sense of any data, but is very helpful for real world, unstructured data modeling. Linear regressions are very good for problems that have a linear relationship. Using linear regression for something that is non linear creates a weak model. The ability that random forests have mitigate outliersensures that you will not have to rigorously clean the dataset. As many trees are averaged the outliers slowly fade, whereas they have strong visibility in linear models. The only downside is the diminishing returns we get from adding too many trees. As you can see in the R squared vs number of trees plot, the model fit line stagnates after around 7 trees (log scale) are added. We can only add so many trees until we stop seeing positive returns, and start to overfit the model. 
 ```{r}
 #| label: linear-regression-comparison
