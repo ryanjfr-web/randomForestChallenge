@@ -102,10 +102,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="random-forest-challenge---the-power-of-weak-learners" class="level1">
 <h1>🌲 Random Forest Challenge - The Power of Weak Learners</h1>
-<p><strong>What we know:</strong> Individual decision trees are weak and have low accuracy or predictive power. Random forests are the combination of numerous weak trees that help to create a strong predictive model. However, if all these values are so weak, how will we know when to stop adding more trees to the forest? The analysis that follows will clear up this dilemma with linear regression and the understanding of the relationship between</p>
-<p><strong>Our Approach:</strong> We’ll compare random forests with different numbers of trees against linear regression and individual decision trees to understand the trade-offs between complexity and performance. * ::: {.panel-tabset}</p>
-<section id="r" class="level3">
-<h3 class="anchored" data-anchor-id="r">R</h3>
+<p><strong>What we know:</strong> Individual decision trees are weak and have low accuracy or predictive power. Random forests are the combination of numerous weak trees that help to create a strong predictive model. However, if all these values are so weak, how will we know when to stop adding more trees to the forest? The analysis that follows will clear up this dilemma with linear regression and the understanding of the relationship between tree count and model performance.</p>
+<p><strong>Our Approach:</strong> We’ll compare random forests with different numbers of trees against linear regression and individual decision trees to understand the trade-offs between complexity and performance.</p>
+<section id="building-random-forests-with-different-numbers-of-trees" class="level2">
+<h2 class="anchored" data-anchor-id="building-random-forests-with-different-numbers-of-trees">1. Building Random Forests with Different Numbers of Trees</h2>
+<p>We’ll start by loading the data and building random forests with varying numbers of trees to observe how performance changes.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(tidyverse))</span>
@@ -147,7 +148,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>rf_5000 <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(SalePrice <span class="sc">~</span> ., <span class="at">data =</span> train_data, <span class="at">ntree =</span> <span class="dv">5000</span>, <span class="at">mtry =</span> <span class="dv">3</span>, <span class="at">seed =</span> <span class="dv">123</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">3. Linear Regression vs Random Forest Comparison</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
@@ -241,7 +242,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+</div>
+</div>
+</section>
+<section id="performance-analysis-and-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="performance-analysis-and-visualization">2. Performance Analysis and Visualization</h2>
+<p>The performance metrics reveal how random forest performance changes with the number of trees. The plots below show the relationship between model performance and tree count.</p>
+</section>
+<section id="linear-regression-vs-random-forest-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression-vs-random-forest-comparison">3. Linear Regression vs Random Forest Comparison</h2>
 <p><strong>Your Task:</strong> Compare random forests to linear regression baseline.</p>
 <p><strong>Create a comparison table showing:</strong> - Linear Regression RMSE - Random Forest (1 tree) RMSE<br>
 - Random Forest (100 trees) RMSE - Random Forest (1000 trees) RMSE</p>
@@ -256,23 +265,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>Your analysis should address:</strong> - The improvement in RMSE when going from 1 tree to 100 trees - Whether switching from linear regression to 100-tree random forest shows similar improvement - When random forests are worth the added complexity vs linear regression - The trade-offs between interpretability and performance</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>📊 Comparison Requirements
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Create a clear table comparing:</p>
-<ul>
-<li>Linear Regression</li>
-<li>Random Forest (1 tree)</li>
-<li>Random Forest (100 trees)</li>
-<li>Random Forest (1000 trees)</li>
-</ul>
 <section id="questions-to-answer-for-75-grade-on-challenge" class="level3">
 <h3 class="anchored" data-anchor-id="questions-to-answer-for-75-grade-on-challenge">Questions to Answer for 75% Grade on Challenge</h3>
 <ol type="1">
@@ -290,11 +282,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Linear Regression Comparison:</strong> Your analysis should include a clear comparison table and discussion of when random forests are worth the added complexity vs linear regression. Focus on practical implications for real-world applications.</li>
 </ol>
 </section>
-</div>
-</div>
-</div>
-</div>
-</div>
 </section>
 </section>
 

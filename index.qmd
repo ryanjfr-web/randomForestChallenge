@@ -10,13 +10,13 @@ execute:
 
 # 🌲 Random Forest Challenge - The Power of Weak Learners
 
-**What we know:** Individual decision trees are weak and have low accuracy or predictive power. Random forests are the combination of numerous weak trees that help to create a strong predictive model. However, if all these values are so weak, how will we know when to stop adding more trees to the forest? The analysis that follows will clear up this dilemma with linear regression and the understanding of the relationship between 
+**What we know:** Individual decision trees are weak and have low accuracy or predictive power. Random forests are the combination of numerous weak trees that help to create a strong predictive model. However, if all these values are so weak, how will we know when to stop adding more trees to the forest? The analysis that follows will clear up this dilemma with linear regression and the understanding of the relationship between tree count and model performance.
 
 **Our Approach:** We'll compare random forests with different numbers of trees against linear regression and individual decision trees to understand the trade-offs between complexity and performance.
-*
-::: {.panel-tabset}
 
-### R
+## 1. Building Random Forests with Different Numbers of Trees
+
+We'll start by loading the data and building random forests with varying numbers of trees to observe how performance changes.
 
 ```{r}
 #| label: load-and-model-r
@@ -185,7 +185,13 @@ ggplot(performance_df, aes(x = Trees, y = R_squared)) +
   ylim(0, 1)
 ```
 
-### 3. Linear Regression vs Random Forest Comparison
+:::
+
+## 2. Performance Analysis and Visualization
+
+The performance metrics reveal how random forest performance changes with the number of trees. The plots below show the relationship between model performance and tree count.
+
+## 3. Linear Regression vs Random Forest Comparison
 
 **Your Task:** Compare random forests to linear regression baseline.
 
@@ -230,15 +236,6 @@ print(comparison_table)
 - When random forests are worth the added complexity vs linear regression
 - The trade-offs between interpretability and performance
 
-::: {.callout-important}
-## 📊 Comparison Requirements
-
-Create a clear table comparing:
-
-- Linear Regression
-- Random Forest (1 tree)
-- Random Forest (100 trees) 
-- Random Forest (1000 trees)
 
 
 ### Questions to Answer for 75% Grade on Challenge
