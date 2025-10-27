@@ -185,27 +185,6 @@ ggplot(performance_df, aes(x = Trees, y = R_squared)) +
   ylim(0, 1)
 ```
 
-:::
-
-## 2. Performance Analysis and Visualization
-
-The performance metrics reveal how random forest performance changes with the number of trees. The plots below show the relationship between model performance and tree count.
-
-## 3. Linear Regression vs Random Forest Comparison
-
-**Your Task:** Compare random forests to linear regression baseline.
-
-**Create a comparison table showing:**
-- Linear Regression RMSE
-- Random Forest (1 tree) RMSE  
-- Random Forest (100 trees) RMSE
-- Random Forest (1000 trees) RMSE
-
-**Your analysis should address:**
-- The improvement in RMSE when going from 1 tree to 100 trees
-- Whether switching from linear regression to 100-tree random forest shows similar improvement
-- When random forests are worth the added complexity vs linear regression
-- The trade-offs between interpretability and performance
 
 ```{r}
 #| label: linear-regression-comparison
@@ -230,15 +209,6 @@ comparison_table <- data.frame(
 print(comparison_table)
 ```
 
-**Your analysis should address:**
-- The improvement in RMSE when going from 1 tree to 100 trees
-- Whether switching from linear regression to 100-tree random forest shows similar improvement
-- When random forests are worth the added complexity vs linear regression
-- The trade-offs between interpretability and performance
-
-
-
-### Questions to Answer for 75% Grade on Challenge
 
 1. **Power of More Trees Analysis:** Provide a clear, well-reasoned analysis of how random forest performance improves with more trees. Your analysis should demonstrate understanding of ensemble learning principles and diminishing returns. 
 
