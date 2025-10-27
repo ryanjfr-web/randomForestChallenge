@@ -12,7 +12,7 @@ echo: False
 
 **What we know:** Individual decision trees are weak and have low accuracy or predictive power. Random forests are the combination of numerous weak trees that help to create a strong predictive model. However, if all these values are so weak, how will we know when to stop adding more trees to the forest? The analysis that follows will clear up this dilemma with linear regression and the understanding of the relationship between 
 
-**Our Approach:** We'll compare random forests with different numbers of trees against linear regression and individual decision trees to understand the trade-offs between complexity and performance **for this dataset**
+**Our Approach:** We'll compare random forests with different numbers of trees against linear regression and individual decision trees to understand the trade-offs between complexity and performance.
 *
 ::: {.panel-tabset}
 
@@ -185,25 +185,6 @@ ggplot(performance_df, aes(x = Trees, y = R_squared)) +
   ylim(0, 1)
 ```
 
-:::
-
-
-**Your analysis should explain:**
-- Why individual decision trees overfit as they become more complex
-- Why random forests don't suffer from the same overfitting problem
-- The mechanisms that prevent overfitting in random forests (bootstrap sampling, random feature selection, averaging)
-
-::: {.callout-important}
-## 📊 Overfitting Analysis Requirements
-
-Create a side-by-side comparison showing:
-1. **Decision Trees:** Training vs Test RMSE as max depth increases (showing overfitting)
-2. **Random Forests:** Training vs Test RMSE as number of trees increases (no overfitting)
-
-- Use the same y-axis limits for both side-by-side plots so it clearly shows whether random forests outperform decision trees.
-- Do not `echo` the code that creates the visualization
-:::
-
 ### 3. Linear Regression vs Random Forest Comparison
 
 **Your Task:** Compare random forests to linear regression baseline.
@@ -213,6 +194,35 @@ Create a side-by-side comparison showing:
 - Random Forest (1 tree) RMSE  
 - Random Forest (100 trees) RMSE
 - Random Forest (1000 trees) RMSE
+
+**Your analysis should address:**
+- The improvement in RMSE when going from 1 tree to 100 trees
+- Whether switching from linear regression to 100-tree random forest shows similar improvement
+- When random forests are worth the added complexity vs linear regression
+- The trade-offs between interpretability and performance
+
+```{r}
+#| label: linear-regression-comparison
+#| echo: false
+
+# Build linear regression model
+lm_model <- lm(SalePrice ~ ., data = train_data)
+
+# Calculate predictions for test data
+lm_predictions <- predict(lm_model, test_data)
+
+# Calculate RMSE for linear regression
+lm_rmse <- sqrt(mean((test_data$SalePrice - lm_predictions)^2))
+
+# Create comparison table
+comparison_table <- data.frame(
+  Model = c("Linear Regression", "Random Forest (1 tree)", "Random Forest (100 trees)", "Random Forest (1000 trees)"),
+  RMSE = c(lm_rmse, rmse_1_test, rmse_100_test, rmse_1000_test)
+)
+
+# Print the comparison table
+print(comparison_table)
+```
 
 **Your analysis should address:**
 - The improvement in RMSE when going from 1 tree to 100 trees
@@ -245,4 +255,3 @@ In decision trees, the training data will continually get better for however muc
 ### Questions to Answer for 95% Grade on Challenge
 
 3. **Linear Regression Comparison:** Your analysis should include a clear comparison table and discussion of when random forests are worth the added complexity vs linear regression. Focus on practical implications for real-world applications.
-*
