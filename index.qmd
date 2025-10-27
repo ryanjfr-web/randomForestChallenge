@@ -4,7 +4,7 @@ subtitle: "The Power of Weak Learners"
 format:
   html: default
 execute:
-echo: False
+  echo: false
   eval: true
 ---
 
