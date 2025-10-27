@@ -241,20 +241,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</section>
-<section id="performance-analysis-and-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="performance-analysis-and-visualization">2. Performance Analysis and Visualization</h2>
-<p>The performance metrics reveal how random forest performance changes with the number of trees. The plots below show the relationship between model performance and tree count.</p>
-</section>
-<section id="linear-regression-vs-random-forest-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="linear-regression-vs-random-forest-comparison">3. Linear Regression vs Random Forest Comparison</h2>
-<p><strong>Your Task:</strong> Compare random forests to linear regression baseline.</p>
-<p><strong>Create a comparison table showing:</strong> - Linear Regression RMSE - Random Forest (1 tree) RMSE<br>
-- Random Forest (100 trees) RMSE - Random Forest (1000 trees) RMSE</p>
-<p><strong>Your analysis should address:</strong> - The improvement in RMSE when going from 1 tree to 100 trees - Whether switching from linear regression to 100-tree random forest shows similar improvement - When random forests are worth the added complexity vs linear regression - The trade-offs between interpretability and performance</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>                       Model     RMSE
@@ -264,24 +250,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 4 Random Forest (1000 trees) 33634.04</code></pre>
 </div>
 </div>
-<p><strong>Your analysis should address:</strong> - The improvement in RMSE when going from 1 tree to 100 trees - Whether switching from linear regression to 100-tree random forest shows similar improvement - When random forests are worth the added complexity vs linear regression - The trade-offs between interpretability and performance</p>
-<section id="questions-to-answer-for-75-grade-on-challenge" class="level3">
-<h3 class="anchored" data-anchor-id="questions-to-answer-for-75-grade-on-challenge">Questions to Answer for 75% Grade on Challenge</h3>
 <ol type="1">
 <li><strong>Power of More Trees Analysis:</strong> Provide a clear, well-reasoned analysis of how random forest performance improves with more trees. Your analysis should demonstrate understanding of ensemble learning principles and diminishing returns.</li>
 </ol>
-<p>The analysis of the data with the addition of more trees gets a lot stronger. It is much better with more trees than less trees, but adding too many will not necessarily make you data that much better. We can find an optimal range that will always give us the data we are looking for based on the knowlegde of random forests. ### Questions to Answer for 85% Grade on Challenge</p>
+<p>The analysis of the data with the addition of more trees gets a lot stronger. It is much better with more trees than less trees, but adding too many will not necessarily make you data that much better. We can find an optimal range that will always give us the data we are looking for based on the knowlegde of random forests.</p>
 <ol start="2" type="1">
 <li><strong>Overfitting Analysis:</strong> Provide a thorough analysis comparing decision trees vs random forests in terms of overfitting. Your analysis should explain why individual trees overfit while random forests don’t, and the mechanisms that prevent overfitting in ensemble methods.</li>
 </ol>
 <p>In decision trees, the training data will continually get better for however much depth you decide to add. However, it does not improve the test data and infact hinders it as more and more depth is added. It is not the same for the train and test data.</p>
-</section>
-<section id="questions-to-answer-for-95-grade-on-challenge" class="level3">
-<h3 class="anchored" data-anchor-id="questions-to-answer-for-95-grade-on-challenge">Questions to Answer for 95% Grade on Challenge</h3>
 <ol start="3" type="1">
 <li><strong>Linear Regression Comparison:</strong> Your analysis should include a clear comparison table and discussion of when random forests are worth the added complexity vs linear regression. Focus on practical implications for real-world applications.</li>
 </ol>
-</section>
+</div>
+</div>
+</div>
 </section>
 </section>
 
